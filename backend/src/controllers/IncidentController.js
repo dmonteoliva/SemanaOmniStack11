@@ -15,12 +15,13 @@ module.exports = {
                 'ongs.name',
                 'ongs.email',
                 'ongs.whatsapp',
+                'ongs.city',
                 'ongs.uf'
             ]);
 
         response.header('X-Total-Count', count['count(*)']);
 
-        return response.json({ incidents });
+        return response.json(incidents);
     },
 
     async create(request, response) {
