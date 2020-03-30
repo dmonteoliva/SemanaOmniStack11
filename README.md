@@ -15,7 +15,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/dmonteoliva/SemanaOmnistack11">
   </a>
 
-<a aria-label="Completed" href="https://rocketseat.com.br/">
+  <a aria-label="Completed" href="https://rocketseat.com.br/">
     <img src="https://img.shields.io/badge/OmniStack-done-green?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAALVBMVEVHcExxWsF0XMJzXMJxWcFsUsD///9jRrzY0u6Xh9Gsn9n39fyMecy0qd2bjNJWBT0WAAAABHRSTlMA2Do606wF2QAAAGlJREFUGJVdj1cWwCAIBLEsRU3uf9xobDH8+GZwUYi8i6ucJwrxKE+7D0G9Q4vlYqtmCSjndr4CgCgzlyFgfKfKCVO0LrPKjmiqMxGXkJwNnXskqWG+1oSM+BSwD8f29YLNjvx/OQrn+g99oQSoNmt3PgAAAABJRU5ErkJggg=="></img>
   </a>
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
@@ -35,9 +35,6 @@ Be The Hero is a project that connects people who are willing to help NGOs. User
     <img alt="Login-Page" title="Login-Page" src=".github/login.jpg" width="500px" />
 </h1>
 
-
-
-
 ## :rocket: Technologies
 
 This project was developed with:
@@ -52,7 +49,15 @@ This project was developed with:
 
 Layout was provided by [Rocketseat](https://rocketseat.com.br/), avaliable at [Figma](https://www.figma.com/file/2C2yvw7jsCOGmaNUDftX9n/Be-The-Hero---OmniStack-11?node-id=0%3A1).
 
+## 🎯 New Features
 
+The following features are not part of the original project, but were implemented by myself:
+
+- [x] Refactored routes validation into new folder in backend;
+- [ ] Made integration tests on all endpoints;
+- [ ] Login using [JWT](https://jwt.io/);
+- [ ] Light/Dark mode on web and mobile app;
+- [ ] Edit an incident;
 
 ---
 

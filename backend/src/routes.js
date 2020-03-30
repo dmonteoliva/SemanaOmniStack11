@@ -1,46 +1,25 @@
 const express = require('express');
-const { celebrate, Segments, Joi } = require('celebrate');
 
 const OngController = require('./controllers/OngController');
 const IncidentController = require('./controllers/IncidentController');
 const ProfileController = require('./controllers/ProfileController');
-const SessionController = require('./controllers/SessionController');
+const LoginController = require('./controllers/LoginController');
+
+const OngValidator = require('./validators/ongValidator');
+const IncidentValidator = require('./validators/incidentValidator');
+const ProfileValidator = require('./validators/profileValidator');
+const LoginValidator = require('./validators/loginValidator');
 
 const routes = express.Router();
 
-routes.post('/sessions', SessionController.create);
+routes.post('/login', LoginValidator.get, LoginController.create);
+routes.get('/profile', ProfileValidator.get, ProfileController.index);
 
 routes.get('/ongs', OngController.index);
+routes.post('/ongs', OngValidator.create, OngController.create);
 
-routes.post('/ongs', celebrate({
-    [Segments.BODY]: Joi.object().keys({
-        name: Joi.string().required(),
-        email: Joi.string().required().email(),
-        whatsapp: Joi.string().required().min(10).max(11),
-        city: Joi.string().required(),
-        uf: Joi.string().required().length(2),
-    })
-}), OngController.create);
-
-routes.get('/profile', celebrate({
-    [Segments.HEADERS]: Joi.object({
-        authorization: Joi.string().required(),
-    }).unknown()
-}), ProfileController.index);
-
-routes.get('/incidents', celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-        page: Joi.number(),
-    })
-}), IncidentController.index);
-
-// Validar header e body e separar validações
-routes.post('/incidents', IncidentController.create);
-
-routes.delete('/incidents/:id', celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-        id: Joi.number().required(),
-    })
-}), IncidentController.delete);
+routes.get('/incidents', IncidentValidator.get, IncidentController.index);
+routes.post('/incidents', IncidentValidator.create, IncidentController.create);
+routes.delete('/incidents/:id', IncidentValidator.delete, IncidentController.delete);
 
 module.exports = routes;
